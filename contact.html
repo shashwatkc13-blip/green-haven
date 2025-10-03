@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Green Haven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Dark Mode Style Overrides --- */
+        .dark .bg-plant-bg { background-color: #1a1a1a; }
+        .dark .text-gray-800 { color: #e0e0e0; }
+        .dark .text-plant-dark-green { color: #8fbc8f; }
+        .dark .bg-white\/90 { background-color: rgba(26, 26, 26, 0.9); }
+        .dark .bg-white { background-color: #2e2e2e; }
+        .dark .shadow-sm, .dark .shadow-lg { box-shadow: 0 1px 2px rgba(255,255,255,0.1); }
+        .dark .border-plant-dark-green { border-color: #556b2f; }
+        .dark .text-gray-600 { color: #b0b0b0; }
+        .dark .text-gray-700 { color: #c7c7c7; } /* Improved visibility for form labels */
+        .dark .bg-plant-dark-green\/10 { background-color: rgba(70, 90, 40, 0.2); }
+        .dark .border-gray-300 { border-color: #555; }
+        /* Form inputs dark mode */
+        .dark input, 
+        .dark select, 
+        .dark textarea {
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+            border-color: #555;
+        }
+        .dark ::placeholder { color: #888; }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { 'plant-bg': '#F8F9F0', 'plant-accent': '#E07A5F', 'plant-dark-green': '#283618' },
+                    fontFamily: { 'display': ['"Playfair Display"', 'serif'], 'body': ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-gray-800 bg-plant-bg">
+
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 border-b-2 border-plant-dark-green">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-plant-dark-green">Green Haven</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Home</a>
+                <a href="about.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">About Us</a>
+                <a href="contact.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Contact</a>
+                <button id="theme-toggle" class="text-plant-dark-green hover:text-plant-accent transition-colors duration-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-plant-accent"><i class="fas fa-leaf text-xl"></i></button>
+            </div>
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="theme-toggle-mobile" class="text-plant-dark-green hover:text-plant-accent transition-colors duration-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-plant-accent"><i class="fas fa-leaf text-xl"></i></button>
+                <button id="mobile-menu-button" class="text-plant-dark-green"><i class="fas fa-bars text-2xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm border-t border-plant-dark-green">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Home</a>
+                <a href="about.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">About Us</a>
+                <a href="contact.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20">
+        <div class="container mx-auto px-4">
+            <h1 class="font-display text-4xl md:text-5xl text-center mb-12 text-plant-dark-green">Get In Touch</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="font-display text-2xl mb-6 text-plant-dark-green">Send Us a Message</h2>
+                    <form id="contact-form" class="space-y-6">
+                        <div><label for="name" class="block text-gray-700 mb-2 font-semibold">Name</label><input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-plant-accent"></div>
+                        <div><label for="email" class="block text-gray-700 mb-2 font-semibold">Email</label><input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-plant-accent"></div>
+                        <div><label for="subject" class="block text-gray-700 mb-2 font-semibold">Subject</label><select id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-plant-accent"><option value="">Select a subject</option><option value="inquiry">Plant Inquiry</option><option value="feedback">Feedback</option><option value="general">General Question</option></select></div>
+                        <div><label for="message" class="block text-gray-700 mb-2 font-semibold">Message</label><textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-plant-accent"></textarea></div>
+                        <button type="submit" class="w-full bg-plant-accent text-white py-3 rounded-md hover:bg-plant-dark-green transition-all font-semibold shadow-lg">Send Message</button>
+                    </form>
+                </div>
+                <div class="space-y-8">
+                    <div class="h-80 bg-gray-200 rounded-lg overflow-hidden shadow-lg"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112395.0298379435!2d77.8188151!3d30.2974415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390929c356c80877%3A0x6d90a1b65b6f3a74!2sDehradun%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1714801127716!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="space-y-6">
+                            <div class="flex items-start"><i class="fas fa-map-marker-alt text-plant-accent text-xl mt-1 mr-4"></i><div><h3 class="font-semibold text-lg">Address</h3><p class="text-gray-600">Sahastradhara Road,<br>Dehradun, Uttarakhand, India</p></div></div>
+                            <div class="flex items-start"><i class="fas fa-phone text-plant-accent text-xl mt-1 mr-4"></i><div><h3 class="font-semibold text-lg">Phone</h3><p class="text-gray-600">+91 6397636269</p></div></div>
+                            <div class="flex items-start"><i class="fas fa-envelope text-plant-accent text-xl mt-1 mr-4"></i><div><h3 class="font-semibold text-lg">Email</h3><p class="text-gray-600">contact@greenhaven.com</p></div></div>
+                            <div class="flex items-start"><i class="fas fa-clock text-plant-accent text-xl mt-1 mr-4"></i><div><h3 class="font-semibold text-lg">Opening Hours</h3><p class="text-gray-600">Mon - Sat: 10am - 7pm<br>Sun: 11am - 5pm</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Opening Hours</h3><p class="text-gray-600">Monday - Saturday: 10am - 7pm</p><p class="text-gray-600">Sunday: 11am - 5pm</p></div>
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Quick Links</h3><ul class="space-y-2"><li><a href="index.html" class="hover:text-plant-accent transition-colors text-gray-600">Home</a></li><li><a href="about.html" class="hover:text-plant-accent transition-colors text-gray-600">About Us</a></li><li><a href="contact.html" class="hover:text-plant-accent transition-colors text-gray-600">Contact</a></li></ul></div>
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Follow Us</h3><div class="flex space-x-4 justify-center md:justify-start"><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-facebook-f text-xl"></i></a><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-instagram text-xl"></i></a><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-twitter text-xl"></i></a></div></div>
+            </div>
+            <div class="mt-8 pt-8 border-t text-center text-gray-600"><p>© 2025 Green Haven. All rights reserved.</p></div>
+        </div>
+    </footer>
+    
+    <script>
+        const htmlElement=document.documentElement,themeToggle=document.getElementById("theme-toggle"),themeToggleMobile=document.getElementById("theme-toggle-mobile");function applyTheme(e){"dark"===e||null===e&&window.matchMedia("(prefers-color-scheme: dark)").matches?htmlElement.classList.add("dark"):htmlElement.classList.remove("dark")}applyTheme(localStorage.getItem("theme"));function toggleTheme(){htmlElement.classList.contains("dark")?(htmlElement.classList.remove("dark"),localStorage.setItem("theme","light")):(htmlElement.classList.add("dark"),localStorage.setItem("theme","dark"))}themeToggle&&themeToggle.addEventListener("click",toggleTheme),themeToggleMobile&&themeToggleMobile.addEventListener("click",toggleTheme);const mobileMenuButton=document.getElementById("mobile-menu-button"),mobileMenu=document.getElementById("mobile-menu");mobileMenuButton.addEventListener("click",(()=>{mobileMenu.classList.toggle("hidden")}));
+    </script>
+</body>
+</html>

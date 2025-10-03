@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Green Haven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Dark Mode Style Overrides --- */
+        .dark .bg-plant-bg { background-color: #1a1a1a; }
+        .dark .text-gray-800 { color: #e0e0e0; }
+        .dark .text-plant-dark-green { color: #8fbc8f; }
+        .dark .bg-white\/90 { background-color: rgba(26, 26, 26, 0.9); }
+        .dark .bg-white { background-color: #2e2e2e; }
+        .dark .shadow-sm, .dark .shadow-lg, .dark .shadow-2xl { box-shadow: 0 1px 2px rgba(255,255,255,0.1); }
+        .dark .border-plant-dark-green { border-color: #556b2f; }
+        .dark .text-gray-600 { color: #b0b0b0; }
+        .dark .text-gray-700 { color: #c7c7c7; }
+        .dark .bg-plant-dark-green\/10 { background-color: rgba(70, 90, 40, 0.2); }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { 'plant-bg': '#F8F9F0', 'plant-accent': '#E07A5F', 'plant-dark-green': '#283618' },
+                    fontFamily: { 'display': ['"Playfair Display"', 'serif'], 'body': ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-gray-800 bg-plant-bg">
+
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 border-b-2 border-plant-dark-green">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-plant-dark-green">Green Haven</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Home</a>
+                <a href="about.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">About Us</a>
+                <a href="contact.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Contact</a>
+                <button id="theme-toggle" class="text-plant-dark-green hover:text-plant-accent transition-colors duration-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-plant-accent"><i class="fas fa-leaf text-xl"></i></button>
+            </div>
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="theme-toggle-mobile" class="text-plant-dark-green hover:text-plant-accent transition-colors duration-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-plant-accent"><i class="fas fa-leaf text-xl"></i></button>
+                <button id="mobile-menu-button" class="text-plant-dark-green"><i class="fas fa-bars text-2xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm border-t border-plant-dark-green">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Home</a>
+                <a href="about.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">About Us</a>
+                <a href="contact.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-[60vh] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('img/about-banner.jpg');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10"><h1 class="font-display text-5xl md:text-7xl text-white drop-shadow-lg">Our Story</h1></div>
+    </section>
+
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1"><img src="img/founder-placeholder.jpg" alt="Founder Rashmi Chhetri Placeholder" class="w-full h-auto rounded-lg shadow-2xl"></div>
+                <div class="order-1 md:order-2">
+                    <h2 class="font-display text-3xl md:text-4xl mb-6 text-plant-dark-green">A Passion for Plants</h2>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Founded by plant enthusiast Rashmi Chhetri, Green Haven began with a simple mission: to share the joy and tranquility of living with plants. What started as a personal passion in the beautiful city of Dehradun has blossomed into a cherished local business.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">Our philosophy is rooted in quality and care. We believe that every plant has a story and a unique personality. We source the healthiest, most beautiful plants and provide our customers with the knowledge and support they need to help them thrive.</p>
+                    <p class="text-gray-700 leading-relaxed">From our humble beginnings, Green Haven has grown into a community hub for plant lovers, dedicated to making Dehradun a greener, more beautiful place, one plant at a time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-plant-dark-green/10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6"><h3 class="font-display text-5xl mb-2 text-plant-dark-green">50+</h3><p class="text-gray-700 text-lg">Plant Varieties</p></div>
+                <div class="p-6"><h3 class="font-display text-5xl mb-2 text-plant-dark-green">1,000+</h3><p class="text-gray-700 text-lg">Happy Plant Parents</p></div>
+                <div class="p-6"><h3 class="font-display text-5xl mb-2 text-plant-dark-green">5</h3><p class="text-gray-700 text-lg">Years of Growth</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Opening Hours</h3><p class="text-gray-600">Monday - Saturday: 10am - 7pm</p><p class="text-gray-600">Sunday: 11am - 5pm</p></div>
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Quick Links</h3><ul class="space-y-2"><li><a href="index.html" class="hover:text-plant-accent transition-colors text-gray-600">Home</a></li><li><a href="about.html" class="hover:text-plant-accent transition-colors text-gray-600">About Us</a></li><li><a href="contact.html" class="hover:text-plant-accent transition-colors text-gray-600">Contact</a></li></ul></div>
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Follow Us</h3><div class="flex space-x-4 justify-center md:justify-start"><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-facebook-f text-xl"></i></a><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-instagram text-xl"></i></a><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-twitter text-xl"></i></a></div></div>
+            </div>
+            <div class="mt-8 pt-8 border-t text-center text-gray-600"><p>© 2025 Green Haven. All rights reserved.</p></div>
+        </div>
+    </footer>
+    
+    <script>
+        const htmlElement=document.documentElement,themeToggle=document.getElementById("theme-toggle"),themeToggleMobile=document.getElementById("theme-toggle-mobile");function applyTheme(e){"dark"===e||null===e&&window.matchMedia("(prefers-color-scheme: dark)").matches?htmlElement.classList.add("dark"):htmlElement.classList.remove("dark")}applyTheme(localStorage.getItem("theme"));function toggleTheme(){htmlElement.classList.contains("dark")?(htmlElement.classList.remove("dark"),localStorage.setItem("theme","light")):(htmlElement.classList.add("dark"),localStorage.setItem("theme","dark"))}themeToggle&&themeToggle.addEventListener("click",toggleTheme),themeToggleMobile&&themeToggleMobile.addEventListener("click",toggleTheme);const mobileMenuButton=document.getElementById("mobile-menu-button"),mobileMenu=document.getElementById("mobile-menu");mobileMenuButton.addEventListener("click",(()=>{mobileMenu.classList.toggle("hidden")}));
+    </script>
+</body>
+</html>

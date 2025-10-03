@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Haven - Bringing Nature Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        /* Fade-in animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-title, .hero-tagline, .hero-cta { opacity: 0; animation: fadeIn 0.8s ease-out forwards; }
+        .hero-title { animation-delay: 0.3s; } .hero-tagline { animation-delay: 0.6s; } .hero-cta { animation-delay: 0.9s; }
+        /* Swiper Carousel Customization */
+        .swiper-button-next, .swiper-button-prev { color: #283618; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 44px; height: 44px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .swiper-button-next:after, .swiper-button-prev:after { font-size: 18px; font-weight: bold; }
+
+        /* --- Dark Mode Style Overrides --- */
+        .dark .bg-plant-bg { background-color: #1a1a1a; }
+        .dark .text-gray-800 { color: #e0e0e0; }
+        .dark .text-plant-dark-green { color: #8fbc8f; }
+        .dark .bg-white\/90 { background-color: rgba(26, 26, 26, 0.9); }
+        .dark .bg-white { background-color: #2e2e2e; }
+        .dark .shadow-sm, .dark .shadow-lg { box-shadow: 0 1px 2px rgba(255,255,255,0.1); }
+        .dark .border-plant-dark-green { border-color: #556b2f; }
+        .dark .text-gray-600 { color: #b0b0b0; }
+        .dark .text-gray-700 { color: #c7c7c7; } /* Improved visibility for form labels */
+        .dark .bg-plant-dark-green\/10 { background-color: rgba(70, 90, 40, 0.2); }
+        .dark .border-gray-300 { border-color: #555; }
+        /* Form inputs dark mode */
+        .dark input, 
+        .dark select, 
+        .dark textarea {
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+            border-color: #555;
+        }
+        .dark ::placeholder { color: #888; }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { 'plant-bg': '#F8F9F0', 'plant-accent': '#E07A5F', 'plant-dark-green': '#283618' },
+                    fontFamily: { 'display': ['"Playfair Display"', 'serif'], 'body': ['Inter', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-gray-800 bg-plant-bg">
+
+    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 border-b-2 border-plant-dark-green">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-display font-bold text-plant-dark-green">Green Haven</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Home</a>
+                <a href="about.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">About Us</a>
+                <a href="contact.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Contact</a>
+                <button id="theme-toggle" class="text-plant-dark-green hover:text-plant-accent transition-colors duration-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-plant-accent"><i class="fas fa-leaf text-xl"></i></button>
+            </div>
+            <div class="md:hidden flex items-center space-x-4">
+                <button id="theme-toggle-mobile" class="text-plant-dark-green hover:text-plant-accent transition-colors duration-200 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-plant-accent"><i class="fas fa-leaf text-xl"></i></button>
+                <button id="mobile-menu-button" class="text-plant-dark-green"><i class="fas fa-bars text-2xl"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm border-t border-plant-dark-green">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="index.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Home</a>
+                <a href="about.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">About Us</a>
+                <a href="contact.html" class="text-plant-dark-green font-semibold transition-colors hover:text-plant-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('img/homepage-banner.jpg');">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 px-4">
+            <h1 class="font-display text-6xl md:text-8xl text-white drop-shadow-xl hero-title">Green Haven</h1>
+            <p class="mt-4 text-xl md:text-2xl text-white/90 drop-shadow-lg hero-tagline">Bringing Nature Home to Dehradun</p>
+            <a href="#plants" class="mt-8 inline-block rounded-full bg-plant-accent px-10 py-4 text-white font-bold tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-transform hero-cta">EXPLORE PLANTS</a>
+        </div>
+    </section>
+
+    <section id="plants" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-4xl md:text-5xl text-center mb-12 text-plant-dark-green">Our Featured Plants</h2>
+            <div class="swiper-container relative">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide p-2"><div class="bg-white rounded-lg shadow-lg overflow-hidden group"><img src="img/monkey-tail-cactus.jpg" alt="Monkey Tail Cactus" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-2xl font-display text-plant-dark-green">Monkey Tail Cactus</h3><p class="text-gray-600 mt-2">A unique, trailing cactus with long, soft, hair-like spines. Perfect for hanging baskets.</p><div class="mt-4 font-body font-bold text-xl text-plant-accent">₹ 299</div></div></div></div>
+                    <div class="swiper-slide p-2"><div class="bg-white rounded-lg shadow-lg overflow-hidden group"><img src="img/heliconia.jpg" alt="Heliconia Bird of Paradise" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-2xl font-display text-plant-dark-green">Heliconia Bird of Paradise</h3><p class="text-gray-600 mt-2">Known for its vibrant, lobster-claw-like flowers, this plant brings a tropical flair to any space.</p><div class="mt-4 font-body font-bold text-xl text-plant-accent">₹ 449</div></div></div></div>
+                    <div class="swiper-slide p-2"><div class="bg-white rounded-lg shadow-lg overflow-hidden group"><img src="img/stapelia.jpg" alt="Stapelia Leendertziae (Black Bells)" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-2xl font-display text-plant-dark-green">Stapelia Leendertziae</h3><p class="text-gray-600 mt-2">A fascinating succulent, famous for its large, bell-shaped, deep red to black flowers.</p><div class="mt-4 font-body font-bold text-xl text-plant-accent">₹ 349</div></div></div></div>
+                    <div class="swiper-slide p-2"><div class="bg-white rounded-lg shadow-lg overflow-hidden group"><img src="img/aechmea.jpg" alt="Aechmea Fasciata Bromeliad" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-2xl font-display text-plant-dark-green">Aechmea Fasciata</h3><p class="text-gray-600 mt-2">Also known as the Urn Plant, it features silvery leaves and a stunning pink flower spike.</p><div class="mt-4 font-body font-bold text-xl text-plant-accent">₹ 399</div></div></div></div>
+                    <div class="swiper-slide p-2"><div class="bg-white rounded-lg shadow-lg overflow-hidden group"><img src="img/rabbits-foot-fern.jpg" alt="Rabbit Foot Fern" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-2xl font-display text-plant-dark-green">Rabbit's Foot Fern</h3><p class="text-gray-600 mt-2">Named for its furry rhizomes that creep over the pot, this fern has delicate, lacy fronds.</p><div class="mt-4 font-body font-bold text-xl text-plant-accent">₹ 249</div></div></div></div>
+                </div>
+                <div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-plant-dark-green/10">
+        <div class="container mx-auto px-4 text-center"><h2 class="text-3xl md:text-4xl font-display text-plant-dark-green mb-4">Find Your Perfect Green Companion</h2><p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">Visit us in Dehradun or get in touch to bring more green into your life. We're here to help you find the perfect plant for your space and lifestyle.</p><a href="contact.html" class="bg-plant-accent text-white px-8 py-3 rounded-full hover:bg-plant-dark-green transition-all font-semibold shadow-lg">Contact Us</a></div>
+    </section>
+
+    <footer class="bg-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Opening Hours</h3><p class="text-gray-600">Monday - Saturday: 10am - 7pm</p><p class="text-gray-600">Sunday: 11am - 5pm</p></div>
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Quick Links</h3><ul class="space-y-2"><li><a href="index.html" class="hover:text-plant-accent transition-colors text-gray-600">Home</a></li><li><a href="about.html" class="hover:text-plant-accent transition-colors text-gray-600">About Us</a></li><li><a href="contact.html" class="hover:text-plant-accent transition-colors text-gray-600">Contact</a></li></ul></div>
+                <div><h3 class="font-display text-xl mb-4 text-plant-dark-green">Follow Us</h3><div class="flex space-x-4 justify-center md:justify-start"><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-facebook-f text-xl"></i></a><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-instagram text-xl"></i></a><a href="#" class="text-gray-600 hover:text-plant-accent transition-colors"><i class="fab fa-twitter text-xl"></i></a></div></div>
+            </div>
+            <div class="mt-8 pt-8 border-t text-center text-gray-600"><p>© 2025 Green Haven. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        const htmlElement=document.documentElement,themeToggle=document.getElementById("theme-toggle"),themeToggleMobile=document.getElementById("theme-toggle-mobile");function applyTheme(e){"dark"===e||null===e&&window.matchMedia("(prefers-color-scheme: dark)").matches?htmlElement.classList.add("dark"):htmlElement.classList.remove("dark")}applyTheme(localStorage.getItem("theme"));function toggleTheme(){htmlElement.classList.contains("dark")?(htmlElement.classList.remove("dark"),localStorage.setItem("theme","light")):(htmlElement.classList.add("dark"),localStorage.setItem("theme","dark"))}themeToggle&&themeToggle.addEventListener("click",toggleTheme),themeToggleMobile&&themeToggleMobile.addEventListener("click",toggleTheme);const mobileMenuButton=document.getElementById("mobile-menu-button"),mobileMenu=document.getElementById("mobile-menu");mobileMenuButton.addEventListener("click",(()=>{mobileMenu.classList.toggle("hidden")}));const swiper=new Swiper(".swiper-container",{loop:!0,slidesPerView:1,spaceBetween:20,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},breakpoints:{640:{slidesPerView:2,spaceBetween:20},1024:{slidesPerView:3,spaceBetween:30}}});
+    </script>
+</body>
+</html>
